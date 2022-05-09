@@ -1,0 +1,18 @@
+
+#include <16f877a.h>
+#include <def_877a.h>
+#FUSES NOWDT, HS, NOPUT, NOPROTECT, NODEBUG, NOBROWNOUT, NOLVP,
+#use delay(clock=4000000)
+unsigned int i;
+void main()
+{ TRISC=0B11000011; 
+ PORTC=0B00000000; 
+ while(true)
+ { portc=0B00100000;
+ delay_us(2500);
+ for(i=0;i<4;i++)
+ { portc=portc>>1; 
+ delay_us(2500);
+ }
+ }
+}
